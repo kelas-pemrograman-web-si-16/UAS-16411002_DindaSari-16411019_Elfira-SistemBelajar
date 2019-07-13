@@ -1,0 +1,63 @@
+include  ../../users/dashboard
+// Content Wrapper. Contains page content
+.content-wrapper
+    // Content Header (Page header)
+    section.content-header
+        h1
+            | Data Jadwal &ensp;
+            if (session_store.admin == true)
+                div(style="display:inline-block;margin-right:10px;")
+                    a(href='/inputkhs').btn.btn-success
+                        h5 Tambah Data Jadwal
+        ol.breadcrumb
+            li
+                a(href='#')
+                    i.fa.fa-dashboard
+                    |  Home
+            li
+                a(href='#') Tables
+            li.active Data tables
+    // Main content
+    section.content
+        .row
+            .col-xs-12
+                // /.box-body
+                // /.box
+                .box
+                    .box-body
+                        table#example1.table.table-bordered.table-striped
+                            thead
+                                tr
+                                    th No
+                                    th Kode Pelajaran
+                                    th Nama Pelajaran
+                                    th Kelas
+                                    th Nama Guru
+                                    th Waktu
+                                    th Durasi
+                                    if (session_store.admin == true)
+                                        th Action
+                            tbody
+                                for jadwal, index in jadwals
+                                    tr
+                                        td #{index+1}
+                                        td #{jadwal.kode_pelajaran}
+                                        td #{jadwal.nama_pelajaran}
+                                        td #{jadwal.kelas}
+                                        td #{jadwal.nama_guru}
+                                        td #{jadwal.waktu}
+                                        td #{jadwal.durasi}
+                                        td
+                                            if (session_store.admin == true)
+                                                div(style="display:inline-block;margin-right:10px;")
+                                                    a(href=jadwal._id+ '/editjadwal').btn.btn-success
+                                                        i.glyphicon.glyphicon-pencil
+                                                div(style="display:inline-block")
+                                                    form(method="POST", action='/' + jadwal._id + '/deletejadwal')
+                                                        input(type="hidden", name="_method", value="DELETE")
+                                                        button(type="submit").btn.btn-danger
+                                                            i.glyphicon.glyphicon-trash
+                    // /.box-body
+                // /.box
+            // /.col
+        // /.row

@@ -1,0 +1,48 @@
+include  ../../users/dashboard
+// Content Wrapper. Contains page content
+.content-wrapper
+    // Content Header (Page header)
+    section.content-header
+        h1
+            | Data Mata Pelajaran
+        ol.breadcrumb
+            li
+                a(href='#')
+                    i.fa.fa-dashboard
+                    |  Home
+            li
+                a(href='#') Tables
+            li.active Data tables
+    // Main content
+    section.content
+        .row
+            .col-xs-12
+                // /.box-body
+                // /.box
+                .box
+                    .box-body
+                        .box.box-info
+                            .box-header.with-border
+                                h3.box-title Input data mata pelajaran
+                            // /.box-header
+                            // form start
+                            form.form-horizontal(method="POST", action='/'+mata_pelajarans._id + '/editmata_pelajaran')
+                                .box-body
+                                    .form-group
+                                        label.col-sm-2.control-label(for='kode_pelajaran') Kode Pelajaran
+                                        .col-sm-10
+                                            input#kode_pelajaran.form-control(type='text' required name="kode_pelajaran" placeholder='kode pelajaran' value= (kode_pelajaran == undefined) ? mata_pelajarans.kode_pelajaran: kode_pelajaran)
+                                    .form-group
+                                        label.col-sm-2.control-label(for='nama_pelajaran') Nama Pelajaran
+                                        .col-sm-10
+                                            input#nama_pelajaran.form-control(type='text' name="nama_pelajaran" placeholder='nama pelajaran' value= (nama_pelajaran == undefined) ? mata_pelajaran.nama_pelajaran: nama_pelajaran)
+                                    .form-group
+                                        label.col-sm-2.control-label(for='nama_guru') Nama Guru
+                                        .col-sm-10
+                                            input#nama_guru.form-control(type='text' name="nama_guru" placeholder='nama guru' value= (nama_guru == undefined) ? mata_pelajaran.nama_guru: nama_guru)
+
+                                // /.box-body
+                                .box-footer
+                                    button.btn.btn-info.pull-right(type='submit') Input Data
+                                // /.box-footer
+

@@ -1,0 +1,61 @@
+include  ../../users/dashboard
+// Content Wrapper. Contains page content
+.content-wrapper
+    // Content Header (Page header)
+    section.content-header
+        h1
+            | Data jadwal
+        ol.breadcrumb
+            li
+                a(href='#')
+                    i.fa.fa-dashboard
+                    |  Home
+            li
+                a(href='#') Tables
+            li.active Data tables
+    // Main content
+    section.content
+        .row
+            .col-xs-12
+                // /.box-body
+                // /.box
+                .box
+                    .box-body
+                        .box.box-info
+                            .box-header.with-border
+                                h3.box-title Input data jadwal
+                            // /.box-header
+                            // form start
+                            form.form-horizontal(method="POST", action='/'+jadwal._id + '/editjadwal')
+                                .box-body
+                                    .form-group
+                                        label.col-sm-2.control-label(for='kode_pelajaran') Kode Pelajaran
+                                        .col-sm-10
+                                            input#kode_pelajaran.form-control(type='text' required name="kode_pelajaran" placeholder='kode pelajaran' value= (kode_pelajaran == undefined) ? jadwal.kode_pelajaran: kode_pelajaran)
+                                    .form-group
+                                        label.col-sm-2.control-label(for='nama_pelajaran') Nama Pelajaran
+                                        .col-sm-10
+                                            input#nama_pelajaran.form-control(type='text' name="nama_pelajaran" placeholder='nama pelajaran' value= (nama_pelajaran == undefined) ? jadwal.nama_pelajaran: nama_pelajaran)
+                                    .form-group
+                                        label.col-sm-2.control-label(for='kelas') Kelas
+                                        .col-sm-10
+                                            input#kelas.form-control(type='text' name="kelas" placeholder='kelas' value= (kelas == undefined) ? jadwal.kelas: kelas)
+                                    .form-group
+                                        label.col-sm-2.control-label(for='nama_guru') Nama Guru
+                                        .col-sm-10
+                                            input#nama_guru.form-control(type='text' name="nama_guru" placeholder='nama guru' value= (nama_guru == undefined) ? jadwal.nama_guru: nama_guru)
+                                    .form-group
+                                        label.col-sm-2.control-label(for='waktu') Waktu
+                                        .col-sm-10
+                                            input#waktu.form-control(type='text' name="waktu" placeholder='waktu' value= (waktu == undefined) ? jadwal.waktu: waktu)
+                                    .form-group
+                                        label.col-sm-2.control-label(for='durasi') durasi
+                                        .col-sm-10
+                                            input#durasi.form-control(type='text' name="durasi" placeholder='durasi' value= (durasi == undefined) ? jadwal.durasi: durasi)
+
+
+                                // /.box-body
+                                .box-footer
+                                    button.btn.btn-info.pull-right(type='submit') Input Data
+                                // /.box-footer
+

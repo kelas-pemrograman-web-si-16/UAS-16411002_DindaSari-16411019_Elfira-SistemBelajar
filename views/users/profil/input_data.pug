@@ -1,0 +1,56 @@
+include  ../../users/dashboard
+// Content Wrapper. Contains page content
+.content-wrapper
+    // Content Header (Page header)
+    section.content-header
+        h1
+            | Data Profil
+        ol.breadcrumb
+            li
+                a(href='#')
+                    i.fa.fa-dashboard
+                    |  Home
+            li
+                a(href='#') Tables
+            li.active Data tables
+    // Main content
+    section.content
+        .row
+            .col-xs-12
+                // /.box-body
+                // /.box
+                .box
+                    .box-body
+                        .box.box-info
+                            .box-header.with-border
+                                h3.box-title Input data profil
+                            // /.box-header
+                            // form start
+                            form.form-horizontal(method="POST", action="/inputprofil", role='form')
+                                .box-body
+                                    .form-group
+                                        label.col-sm-2.control-label(for='kelas') Kelas
+                                        .col-sm-10
+                                            input#kelas.form-control(type='text' required name="kelas" placeholder='kelas')
+                                    .form-group
+                                        label.col-sm-2.control-label(for='nama') Nama
+                                        .col-sm-10
+                                            input#nama.form-control(type='text' name="nama" placeholder='Nama')
+                                    .form-group
+                                        label.col-sm-2.control-label(for='alamat') Alamat
+                                        .col-sm-10
+                                            input#alamat.form-control(type='text' name="alamat" placeholder='Alamat')
+                                    .form-group
+                                        label.col-sm-2.control-label(for='ttl') Ttl
+                                        .col-sm-10
+                                            input#ttl.form-control(type='text' name="ttl" placeholder='Ttl')
+                                    .form-group
+                                        label.col-sm-2.control-label(for='jenis_kelamin') Jenis Kelamin
+                                        .col-sm-10
+                                            input#jenis_kelamin.form-control(type='text' name="jenis_kelamin" placeholder='Jenis Kelamin')
+
+
+                                // /.box-body
+                                .box-footer
+                                    button.btn.btn-info.pull-right(type='submit') Input Data
+                                // /.box-footer

@@ -1,0 +1,59 @@
+include  ../../users/dashboard
+// Content Wrapper. Contains page content
+.content-wrapper
+    // Content Header (Page header)
+    section.content-header
+        h1
+            | Data Profil &ensp;
+            //if (session_store.admin == true)
+                div(style="display:inline-block;margin-right:10px;")
+                    a(href='/inputprofil').btn.btn-success
+                        h5 Tambah Data Profil
+        ol.breadcrumb
+            li
+                a(href='#')
+                    i.fa.fa-dashboard
+                    |  Home
+            li
+                a(href='#') Tables
+            li.active Data tables
+    // Main content
+    section.content
+        .row
+            .col-xs-12
+                // /.box-body
+                // /.box
+                .box
+                    .box-body
+                        table#example1.table.table-bordered.table-striped
+                            thead
+                                tr
+                                    th No
+                                    th Kelas
+                                    th Nama
+                                    th Alamat
+                                    th Ttl
+                                    th Jenis Kelamin
+                                    if (session_store.admin == true)
+                                        th Action
+                            tbody
+                                for profil, index in profils
+                                    tr
+                                        td #{index+1}
+                                        td #{profil.kelas}
+                                        td #{profil.nama}
+                                        td #{profil.alamat}
+                                        td #{profil.ttl}
+                                        td #{profil.jenis_kelamin}
+                                        td
+                                            if (session_store.admin == true)
+                                            div(style="display:inline-block;margin-right:10px;")
+                                                a(href=profil._id + '/editprofil').btn.btn-success
+                                                    i.glyphicon.glyphicon-pencil
+                                                div(style="display:inline-block")
+                                                    form(method="POST", action='/' + profil._id + '/delete')
+                                                        input(type="hidden", name="_method", value="DELETE")
+                                                        button(type="submit").btn.btn-danger
+                                                            i.glyphicon.glyphicon-trash
+                    // /.box-body
+                // /.box
